@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+	<!-- dao -->
+	<bean id="orderDAO" class="group5.travel.dao.impl.OrderDAOImpl"/>
+	<bean id="userDAO" class="group5.travel.dao.impl.UserDAOImpl"/>
+	<bean id="menuDAO" class="group5.travel.dao.impl.MenuDAOImpl"/>
+	<bean id="tripDAO" class="group5.travel.dao.impl.TripDAOImpl"/>
+	<bean id="appointDAO" class="group5.travel.dao.impl.AppointDAOImpl"/>
+	
+	<!-- service -->
+	<bean id="orderService" class="group5.travel.service.impl.OrderServiceImpl">
+		<property name="orderDAO" ref="orderDAO"/>
+	</bean>
+	<bean id="userService" class="group5.travel.service.impl.UserServiceImpl">
+		<property name="userDAO" ref="userDAO"/>
+	</bean>
+	<bean id="menuService" class="group5.travel.service.impl.MenuServiceImpl">
+		<property name="menuDAO" ref="menuDAO"/>
+	</bean>
+	<bean id="tripService" class="group5.travel.service.impl.TripServiceImpl">
+		<property name="tripDAO" ref="tripDAO"/>
+	</bean>
+	<bean id="appointService" class="group5.travel.service.impl.AppointServiceImpl">
+		<property name="appointDAO" ref="appointDAO"/>
+	</bean>
+</beans>

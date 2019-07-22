@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>修改密码</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=no, width=device-width"
+	name="viewport" />
+<link rel="stylesheet" href="css/style.css">
+<link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<!--[if IE]>
+<script src="js/html5.js"></script>
+<![endif]-->
+
+</head>
+<body class="agree">
+	<div class="container">
+		<div class="tllcolse">
+			<a href="login.html"><img src="images/ico/ico_close.png" alt=""></a>
+		</div>
+		<!--//.tllcolse-->
+		<div class="alogo">
+			<a href="index.jsp"><img src="images/logo1.png" alt=""></a>
+		</div>
+		<!--//.alogo-->
+		<form action="../user?op=repass" method="post">
+			<div class="lobox">
+				<div class="container">
+
+					<div class="row lolist">
+						<div class="col-xs-2">
+							<img src="images/ico/ico_mail.png" alt="">
+						</div>
+						<div class="col-xs-10 pdlnone ">
+							<input type="text" class="txt_com" id="userEmail" name="userEmail" placeholder="邮箱">
+						</div>
+					</div>
+					<div class="row lolist">
+						<div class="col-xs-2">
+							<img src="images/ico/ico_yzm.png" alt="">
+						</div>
+						<div class="col-xs-10 pdlnone ">
+							<input type="text" class="txt_com" id="code" name="code" placeholder="邮箱秘钥">
+						</div>
+					</div>
+					<div class="row lolist">
+						<div class="col-xs-2">
+							<img src="images/ico/ico_pass.png" alt="">
+						</div>
+						<div class="col-xs-10 pdlnone ">
+							<input type="password" class="txt_com" id="userPass" name="userPass" placeholder="新密码">
+						</div>
+					</div>
+					<div class="row lolist">
+						<div class="col-xs-2">
+							<img src="images/ico/ico_pass.png" alt="">
+						</div>
+						<div class="col-xs-10 pdlnone ">
+							<input type="password" class="txt_com" id="userPass1" name="userPass1" placeholder="确认密码">
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--//.lobox-->
+			<div class="lopush">
+				<div class="row">
+					<div class="col-xs-12 txc">
+						<input type="submit" class="sub_com" value="完成">
+					</div>
+
+				</div>
+			</div>
+			<!--//.lopush-->
+
+		</form>
+	</div>
+</body>
+</html>
+<script type="text/javascript">
+	var wait = 60;
+	function time(o) {
+		if (wait == 0) {
+			o.removeAttribute("disabled");
+			o.value = "发送验证码";
+			wait = 60;
+		} else {
+			o.setAttribute("disabled", true);
+			o.value = "(" + wait + ")后可重新发送";
+			wait--;
+			setTimeout(function() {
+				time(o)
+			}, 1000)
+		}
+	}
+	document.getElementById("btnyzm").onclick = function() {
+		time(this);
+	}
+</script>
